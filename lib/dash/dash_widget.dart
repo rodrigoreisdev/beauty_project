@@ -106,6 +106,54 @@ class _DashWidgetState extends State<DashWidget> {
                 ],
               ),
             ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Text(
+                        'E-mail: ',
+                        style: FlutterFlowTheme.of(context).bodyText1,
+                      ),
+                      Text(
+                        'Hello World',
+                        style: FlutterFlowTheme.of(context).bodyText1,
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Text(
+                        'Telefone: ',
+                        style: FlutterFlowTheme.of(context).bodyText1,
+                      ),
+                      Text(
+                        'Hello World',
+                        style: FlutterFlowTheme.of(context).bodyText1,
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Text(
+                        'Hello World',
+                        style: FlutterFlowTheme.of(context).bodyText1,
+                      ),
+                      Text(
+                        'Hello World',
+                        style: FlutterFlowTheme.of(context).bodyText1,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
             Container(
               width: MediaQuery.of(context).size.width * 0.9,
               height: MediaQuery.of(context).size.height * 0.7,
