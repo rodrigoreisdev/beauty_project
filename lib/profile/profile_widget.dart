@@ -47,8 +47,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
             color: Colors.white,
             size: 30,
           ),
-          onPressed: () {
-            print('IconButton pressed ...');
+          onPressed: () async {
+            Navigator.pop(context);
           },
         ),
         title: Text(
@@ -70,6 +70,15 @@ class _ProfileWidgetState extends State<ProfileWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                child: Image.asset(
+                  'assets/images/logo.png',
+                  width: MediaQuery.of(context).size.width * 0.5,
+                  height: 150,
+                  fit: BoxFit.fitHeight,
+                ),
+              ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
                 child: Text(

@@ -35,8 +35,8 @@ class _DashWidgetState extends State<DashWidget> {
             color: Colors.white,
             size: 30,
           ),
-          onPressed: () {
-            print('IconButton pressed ...');
+          onPressed: () async {
+            Navigator.pop(context);
           },
         ),
         title: Text(
@@ -113,6 +113,12 @@ class _DashWidgetState extends State<DashWidget> {
                   ),
                 ],
               ),
+            ),
+            Image.asset(
+              'assets/images/logo.png',
+              width: MediaQuery.of(context).size.width * 0.5,
+              height: 100,
+              fit: BoxFit.fitHeight,
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),

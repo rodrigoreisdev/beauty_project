@@ -1,21 +1,19 @@
-import '../auth/auth_util.dart';
-import '../dash/dash_widget.dart';
+import '../dash_adm/dash_adm_widget.dart';
+import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../login_adm/login_adm_widget.dart';
-import '../register/register_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginWidget extends StatefulWidget {
-  const LoginWidget({Key key}) : super(key: key);
+class LoginAdmWidget extends StatefulWidget {
+  const LoginAdmWidget({Key key}) : super(key: key);
 
   @override
-  _LoginWidgetState createState() => _LoginWidgetState();
+  _LoginAdmWidgetState createState() => _LoginAdmWidgetState();
 }
 
-class _LoginWidgetState extends State<LoginWidget> {
+class _LoginAdmWidgetState extends State<LoginAdmWidget> {
   TextEditingController emailAddressController;
   TextEditingController passwordLoginController;
   bool passwordLoginVisibility;
@@ -33,6 +31,35 @@ class _LoginWidgetState extends State<LoginWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
+      appBar: AppBar(
+        backgroundColor: Color(0xFFEF39E2),
+        automaticallyImplyLeading: false,
+        leading: FlutterFlowIconButton(
+          borderColor: Colors.transparent,
+          borderRadius: 30,
+          borderWidth: 1,
+          buttonSize: 60,
+          icon: Icon(
+            Icons.arrow_back_rounded,
+            color: Colors.white,
+            size: 30,
+          ),
+          onPressed: () async {
+            Navigator.pop(context);
+          },
+        ),
+        title: Text(
+          'Page Title',
+          style: FlutterFlowTheme.of(context).title2.override(
+                fontFamily: 'Poppins',
+                color: Colors.white,
+                fontSize: 22,
+              ),
+        ),
+        actions: [],
+        centerTitle: false,
+        elevation: 2,
+      ),
       backgroundColor: Color(0xFFF1F4F8),
       body: SingleChildScrollView(
         child: Column(
@@ -63,7 +90,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(4, 4, 4, 4),
                             child: Text(
-                              'Acesse sua conta',
+                              'Acesso administrativo',
                               style: FlutterFlowTheme.of(context)
                                   .subtitle2
                                   .override(
@@ -223,21 +250,23 @@ class _LoginWidgetState extends State<LoginWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        final user = await signInWithEmail(
-                          context,
-                          emailAddressController.text,
-                          passwordLoginController.text,
-                        );
-                        if (user == null) {
+                        if ((emailAddressController.text) ==
+                            'admin@beauty.com') {
+                          if ((passwordLoginController.text) == '123456') {
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DashAdmWidget(),
+                              ),
+                            );
+                          } else {
+                            return;
+                          }
+
+                          return;
+                        } else {
                           return;
                         }
-
-                        await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => DashWidget(),
-                          ),
-                        );
                       },
                       text: 'Entrar',
                       options: FFButtonOptions(
@@ -252,70 +281,6 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   fontWeight: FontWeight.normal,
                                 ),
                         elevation: 3,
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1,
-                        ),
-                        borderRadius: 8,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(30, 44, 9, 0),
-                    child: FFButtonWidget(
-                      onPressed: () async {
-                        await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => RegisterWidget(),
-                          ),
-                        );
-                      },
-                      text: 'Cadastre-se',
-                      options: FFButtonOptions(
-                        width: 170,
-                        height: 50,
-                        color: Color(0xFFF1F4F8),
-                        textStyle:
-                            FlutterFlowTheme.of(context).subtitle2.override(
-                                  fontFamily: 'Outfit',
-                                  color: Color(0xFF57636C),
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                        elevation: 0,
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1,
-                        ),
-                        borderRadius: 8,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(30, 44, 9, 0),
-                    child: FFButtonWidget(
-                      onPressed: () async {
-                        await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LoginAdmWidget(),
-                          ),
-                        );
-                      },
-                      text: 'Administrador',
-                      options: FFButtonOptions(
-                        width: 170,
-                        height: 50,
-                        color: Color(0xFFF1F4F8),
-                        textStyle:
-                            FlutterFlowTheme.of(context).subtitle2.override(
-                                  fontFamily: 'Outfit',
-                                  color: Color(0xFF57636C),
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                        elevation: 0,
                         borderSide: BorderSide(
                           color: Colors.transparent,
                           width: 1,

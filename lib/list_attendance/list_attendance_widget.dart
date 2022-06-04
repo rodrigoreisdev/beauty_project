@@ -34,8 +34,8 @@ class _ListAttendanceWidgetState extends State<ListAttendanceWidget> {
             color: Colors.white,
             size: 30,
           ),
-          onPressed: () {
-            print('IconButton pressed ...');
+          onPressed: () async {
+            Navigator.pop(context);
           },
         ),
         title: Text(
@@ -177,41 +177,50 @@ class _ListAttendanceWidgetState extends State<ListAttendanceWidget> {
                                   child: Card(
                                     clipBehavior: Clip.antiAliasWithSaveLayer,
                                     color: Color(0xFFF5F5F5),
-                                    child: Align(
-                                      alignment: AlignmentDirectional(0, 0),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10, 10, 10, 10),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.stretch,
-                                          children: [
-                                            Text(
-                                              dateTimeFormat(
-                                                  'd/M/y',
-                                                  listViewAttendenceRecord
-                                                      .date),
-                                              textAlign: TextAlign.start,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Align(
+                                          alignment: AlignmentDirectional(0, 0),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10, 10, 10, 10),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.stretch,
+                                              children: [
+                                                Text(
+                                                  dateTimeFormat(
+                                                      'd/M/y',
+                                                      listViewAttendenceRecord
+                                                          .date),
+                                                  textAlign: TextAlign.start,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
                                                       .bodyText1
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color: Colors.black,
                                                       ),
-                                            ),
-                                            Text(
-                                              listViewAttendenceRecord.subject,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
+                                                ),
+                                                Text(
+                                                  listViewAttendenceRecord
+                                                      .subject,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
                                                       .bodyText1,
+                                                ),
+                                              ],
                                             ),
-                                          ],
+                                          ),
                                         ),
-                                      ),
+                                      ],
                                     ),
                                   ),
                                 ),
