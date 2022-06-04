@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>36685958177-puoam3d4grh1r6lp991orndjpfaqjnkk.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.36685958177-puoam3d4grh1r6lp991orndjpfaqjnkk</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>36685958177-pil9fqkcnilv0j3j3ob5on0dbr2phf7h.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBryQvZzQK0pKQa1NU7pJbhO5e3m3pO9nM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>36685958177</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mycompany.projetobeleza</string>
+	<key>PROJECT_ID</key>
+	<string>projeto-beleza-900db</string>
+	<key>STORAGE_BUCKET</key>
+	<string>projeto-beleza-900db.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:36685958177:ios:5711daecc63307a64de760</string>
+</dict>
+</plist>
