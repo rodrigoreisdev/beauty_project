@@ -41,70 +41,48 @@ class _RegisterWidgetState extends State<RegisterWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100),
-        child: AppBar(
-          backgroundColor: Color(0xFFF1F4F8),
-          automaticallyImplyLeading: false,
-          flexibleSpace: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
-                      child: FlutterFlowIconButton(
-                        borderColor: Colors.transparent,
-                        borderRadius: 30,
-                        borderWidth: 1,
-                        buttonSize: 50,
-                        icon: Icon(
-                          Icons.arrow_back_rounded,
-                          color: Color(0xFF0F1113),
-                          size: 24,
-                        ),
-                        onPressed: () async {
-                          Navigator.pop(context);
-                        },
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
-                      child: Text(
-                        'Back',
-                        style: FlutterFlowTheme.of(context).title1.override(
-                              fontFamily: 'Outfit',
-                              color: Color(0xFF0F1113),
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                            ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+      appBar: AppBar(
+        backgroundColor: Color(0xFFEF39E2),
+        automaticallyImplyLeading: false,
+        leading: FlutterFlowIconButton(
+          borderColor: Colors.transparent,
+          borderRadius: 30,
+          borderWidth: 1,
+          buttonSize: 60,
+          icon: Icon(
+            Icons.arrow_back_rounded,
+            color: Colors.white,
+            size: 30,
           ),
-          actions: [],
-          elevation: 0,
+          onPressed: () {
+            print('IconButton pressed ...');
+          },
         ),
+        title: Text(
+          'Page Title',
+          style: FlutterFlowTheme.of(context).title2.override(
+                fontFamily: 'Poppins',
+                color: Colors.white,
+                fontSize: 22,
+              ),
+        ),
+        actions: [],
+        centerTitle: false,
+        elevation: 2,
       ),
       backgroundColor: Color(0xFFF1F4F8),
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            Image.asset(
-              'assets/images/logo.png',
-              width: MediaQuery.of(context).size.width * 0.5,
-              height: 150,
-              fit: BoxFit.cover,
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 100),
+              child: Image.asset(
+                'assets/images/logo.png',
+                width: MediaQuery.of(context).size.width * 0.5,
+                height: 150,
+                fit: BoxFit.cover,
+              ),
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 8),
@@ -155,7 +133,6 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                           fontSize: 14,
                           fontWeight: FontWeight.normal,
                         ),
-                    hintText: 'Nome',
                     hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
                           fontFamily: 'Lexend Deca',
                           color: Color(0xFF57636C),
@@ -210,14 +187,13 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   controller: emailAddressController,
                   obscureText: false,
                   decoration: InputDecoration(
-                    labelText: 'Your email address...',
+                    labelText: 'E-mail',
                     labelStyle: FlutterFlowTheme.of(context).bodyText2.override(
                           fontFamily: 'Outfit',
                           color: Color(0xFF57636C),
                           fontSize: 14,
                           fontWeight: FontWeight.normal,
                         ),
-                    hintText: 'Enter your email...',
                     hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
                           fontFamily: 'Lexend Deca',
                           color: Color(0xFF57636C),
@@ -249,6 +225,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                         fontSize: 14,
                         fontWeight: FontWeight.normal,
                       ),
+                  keyboardType: TextInputType.emailAddress,
                 ),
               ),
             ),
@@ -279,7 +256,6 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                           fontSize: 14,
                           fontWeight: FontWeight.normal,
                         ),
-                    hintText: 'Nome',
                     hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
                           fontFamily: 'Lexend Deca',
                           color: Color(0xFF57636C),
@@ -311,6 +287,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                         fontSize: 14,
                         fontWeight: FontWeight.normal,
                       ),
+                  keyboardType: TextInputType.phone,
                 ),
               ),
             ),
@@ -334,14 +311,13 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   controller: passwordController,
                   obscureText: !passwordVisibility,
                   decoration: InputDecoration(
-                    labelText: 'Password',
+                    labelText: 'Senha',
                     labelStyle: FlutterFlowTheme.of(context).bodyText2.override(
                           fontFamily: 'Outfit',
                           color: Color(0xFF57636C),
                           fontSize: 14,
                           fontWeight: FontWeight.normal,
                         ),
-                    hintText: 'Please enter your password...',
                     hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
                           fontFamily: 'Lexend Deca',
                           color: Color(0xFF57636C),
@@ -409,14 +385,13 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   controller: confirmPasswordController,
                   obscureText: !confirmPasswordVisibility,
                   decoration: InputDecoration(
-                    labelText: 'Confirm Password',
+                    labelText: 'Confirmar Senha',
                     labelStyle: FlutterFlowTheme.of(context).bodyText2.override(
                           fontFamily: 'Outfit',
                           color: Color(0xFF57636C),
                           fontSize: 14,
                           fontWeight: FontWeight.normal,
                         ),
-                    hintText: 'Please enter your password...',
                     hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
                           fontFamily: 'Lexend Deca',
                           color: Color(0xFF57636C),
@@ -506,7 +481,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                     ),
                   );
                 },
-                text: 'Create Account',
+                text: 'Registrar',
                 options: FFButtonOptions(
                   width: 270,
                   height: 50,

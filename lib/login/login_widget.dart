@@ -34,19 +34,22 @@ class _LoginWidgetState extends State<LoginWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Color(0xFFF1F4F8),
-      body: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Image.asset(
-            'assets/images/logo.png',
-            width: MediaQuery.of(context).size.width * 0.5,
-            height: 150,
-            fit: BoxFit.cover,
-          ),
-          Align(
-            alignment: AlignmentDirectional(0, -0.05),
-            child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 150),
+              child: Image.asset(
+                'assets/images/logo.png',
+                width: MediaQuery.of(context).size.width * 0.5,
+                height: 150,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Align(
+              alignment: AlignmentDirectional(0, -0.05),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -95,7 +98,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                         controller: emailAddressController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Your email address...',
+                          labelText: 'E-mail',
                           labelStyle:
                               FlutterFlowTheme.of(context).bodyText2.override(
                                     fontFamily: 'Outfit',
@@ -103,7 +106,6 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     fontSize: 14,
                                     fontWeight: FontWeight.normal,
                                   ),
-                          hintText: 'Enter your email...',
                           hintStyle:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Lexend Deca',
@@ -136,6 +138,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                               fontSize: 14,
                               fontWeight: FontWeight.normal,
                             ),
+                        keyboardType: TextInputType.emailAddress,
                       ),
                     ),
                   ),
@@ -159,7 +162,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                         controller: passwordLoginController,
                         obscureText: !passwordLoginVisibility,
                         decoration: InputDecoration(
-                          labelText: 'Password',
+                          labelText: 'Senha',
                           labelStyle:
                               FlutterFlowTheme.of(context).bodyText2.override(
                                     fontFamily: 'Outfit',
@@ -167,7 +170,6 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     fontSize: 14,
                                     fontWeight: FontWeight.normal,
                                   ),
-                          hintText: 'Please enter your password...',
                           hintStyle:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Lexend Deca',
@@ -237,7 +239,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                           ),
                         );
                       },
-                      text: 'Login',
+                      text: 'Entrar',
                       options: FFButtonOptions(
                         width: 270,
                         height: 50,
@@ -325,8 +327,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                 ],
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

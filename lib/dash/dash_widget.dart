@@ -1,8 +1,8 @@
 import '../auth/auth_util.dart';
+import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../list_attendance/list_attendance_widget.dart';
-import '../login/login_widget.dart';
 import '../new_attendence/new_attendence_widget.dart';
 import '../profile/profile_widget.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +22,35 @@ class _DashWidgetState extends State<DashWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
+      appBar: AppBar(
+        backgroundColor: Color(0xFFEF39E2),
+        automaticallyImplyLeading: false,
+        leading: FlutterFlowIconButton(
+          borderColor: Colors.transparent,
+          borderRadius: 30,
+          borderWidth: 1,
+          buttonSize: 60,
+          icon: Icon(
+            Icons.arrow_back_rounded,
+            color: Colors.white,
+            size: 30,
+          ),
+          onPressed: () {
+            print('IconButton pressed ...');
+          },
+        ),
+        title: Text(
+          'Page Title',
+          style: FlutterFlowTheme.of(context).title2.override(
+                fontFamily: 'Poppins',
+                color: Colors.white,
+                fontSize: 22,
+              ),
+        ),
+        actions: [],
+        centerTitle: false,
+        elevation: 2,
+      ),
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
@@ -29,7 +58,7 @@ class _DashWidgetState extends State<DashWidget> {
           children: [
             Container(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.2,
+              height: MediaQuery.of(context).size.height * 0.15,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [Color(0xFFCB2376), Color(0xFFC518A8)],
@@ -47,70 +76,40 @@ class _DashWidgetState extends State<DashWidget> {
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      InkWell(
-                        onTap: () async {
-                          await signOut();
-                          await Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => LoginWidget(),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                          child: Text(
+                            'Olá, ',
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                    ),
+                          ),
+                        ),
+                        AuthUserStreamWidget(
+                          child: Text(
+                            valueOrDefault<String>(
+                              currentUserDisplayName,
+                              'Usuário',
                             ),
-                            (r) => false,
-                          );
-                        },
-                        child: Icon(
-                          Icons.chevron_left_sharp,
-                          color: Colors.black,
-                          size: 32,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(50),
-                          child: Image.network(
-                            'https://picsum.photos/seed/658/600',
-                            width: 100,
-                            height: 100,
-                            fit: BoxFit.cover,
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                    ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                        child: Text(
-                          'Olá, ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                  ),
-                        ),
-                      ),
-                      AuthUserStreamWidget(
-                        child: Text(
-                          valueOrDefault<String>(
-                            currentUserDisplayName,
-                            'Usuário',
-                          ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                  ),
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -195,8 +194,11 @@ class _DashWidgetState extends State<DashWidget> {
                         )
                       ],
                       gradient: LinearGradient(
-                        colors: [Color(0xFFE5BBDF), Color(0xFFE5BBDF)],
-                        stops: [0, 1],
+                        colors: [
+                          FlutterFlowTheme.of(context).primaryColor,
+                          FlutterFlowTheme.of(context).primaryColor
+                        ],
+                        stops: [1, 1],
                         begin: AlignmentDirectional(0, -1),
                         end: AlignmentDirectional(0, 1),
                       ),
@@ -218,12 +220,18 @@ class _DashWidgetState extends State<DashWidget> {
                         children: [
                           Icon(
                             Icons.add,
-                            color: Colors.black,
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
                             size: 50,
                           ),
                           Text(
                             'Novo Atendimento',
-                            style: FlutterFlowTheme.of(context).bodyText1,
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Poppins',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                    ),
                           ),
                         ],
                       ),
@@ -240,8 +248,11 @@ class _DashWidgetState extends State<DashWidget> {
                         )
                       ],
                       gradient: LinearGradient(
-                        colors: [Color(0xFFE5BBDF), Color(0xFFE5BBDF)],
-                        stops: [0, 1],
+                        colors: [
+                          FlutterFlowTheme.of(context).primaryColor,
+                          Color(0xFFE5BBDF)
+                        ],
+                        stops: [1, 1],
                         begin: AlignmentDirectional(0, -1),
                         end: AlignmentDirectional(0, 1),
                       ),
@@ -263,12 +274,18 @@ class _DashWidgetState extends State<DashWidget> {
                         children: [
                           Icon(
                             Icons.dashboard_sharp,
-                            color: Colors.black,
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
                             size: 50,
                           ),
                           Text(
                             'Atendimentos',
-                            style: FlutterFlowTheme.of(context).bodyText1,
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Poppins',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                    ),
                           ),
                         ],
                       ),
