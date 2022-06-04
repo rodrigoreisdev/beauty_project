@@ -194,7 +194,7 @@ class _ListAttendanceWidgetState extends State<ListAttendanceWidget> {
                                                       ),
                                             ),
                                             Text(
-                                              listViewAttendenceRecord.anwser,
+                                              listViewAttendenceRecord.subject,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyText1,

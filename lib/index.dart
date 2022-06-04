@@ -14,3 +14,4 @@ export 'dash_administrador/dash_administrador_widget.dart'
     show DashAdministradorWidget;
 export 'attendence_details_adm/attendence_details_adm_widget.dart'
     show AttendenceDetailsAdmWidget;
+export 'profile/profile_widget.dart' show ProfileWidget;

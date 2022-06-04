@@ -2,7 +2,9 @@ import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../list_attendance/list_attendance_widget.dart';
+import '../login/login_widget.dart';
 import '../new_attendence/new_attendence_widget.dart';
+import '../profile/profile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -50,7 +52,14 @@ class _DashWidgetState extends State<DashWidget> {
                     children: [
                       InkWell(
                         onTap: () async {
-                          Navigator.pop(context);
+                          await signOut();
+                          await Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoginWidget(),
+                            ),
+                            (r) => false,
+                          );
                         },
                         child: Icon(
                           Icons.chevron_left_sharp,
@@ -107,11 +116,32 @@ class _DashWidgetState extends State<DashWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      InkWell(
+                        onTap: () async {
+                          await Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProfileWidget(),
+                            ),
+                          );
+                        },
+                        child: Icon(
+                          Icons.settings_outlined,
+                          color: Colors.black,
+                          size: 30,
+                        ),
+                      ),
+                    ],
+                  ),
                   Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -120,7 +150,7 @@ class _DashWidgetState extends State<DashWidget> {
                         style: FlutterFlowTheme.of(context).bodyText1,
                       ),
                       Text(
-                        'Hello World',
+                        currentUserEmail,
                         style: FlutterFlowTheme.of(context).bodyText1,
                       ),
                     ],
@@ -132,22 +162,11 @@ class _DashWidgetState extends State<DashWidget> {
                         'Telefone: ',
                         style: FlutterFlowTheme.of(context).bodyText1,
                       ),
-                      Text(
-                        'Hello World',
-                        style: FlutterFlowTheme.of(context).bodyText1,
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Text(
-                        'Hello World',
-                        style: FlutterFlowTheme.of(context).bodyText1,
-                      ),
-                      Text(
-                        'Hello World',
-                        style: FlutterFlowTheme.of(context).bodyText1,
+                      AuthUserStreamWidget(
+                        child: Text(
+                          currentPhoneNumber,
+                          style: FlutterFlowTheme.of(context).bodyText1,
+                        ),
                       ),
                     ],
                   ),
@@ -156,9 +175,9 @@ class _DashWidgetState extends State<DashWidget> {
             ),
             Container(
               width: MediaQuery.of(context).size.width * 0.9,
-              height: MediaQuery.of(context).size.height * 0.7,
+              height: MediaQuery.of(context).size.height * 0.5,
               decoration: BoxDecoration(
-                color: Color(0xFFEEEEEE),
+                color: Colors.white,
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.max,

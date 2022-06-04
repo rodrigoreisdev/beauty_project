@@ -493,6 +493,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   final usersCreateData = createUsersRecordData(
                     displayName: displayNameController.text,
                     phoneNumber: phoneController.text,
+                    createdTime: getCurrentTimestamp,
                   );
                   await UsersRecord.collection
                       .doc(user.uid)
