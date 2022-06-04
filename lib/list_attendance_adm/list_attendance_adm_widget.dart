@@ -1,5 +1,4 @@
 import '../attendence_details_adm/attendence_details_adm_widget.dart';
-import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -46,7 +45,7 @@ class _ListAttendanceAdmWidgetState extends State<ListAttendanceAdmWidget> {
           },
         ),
         title: Text(
-          'Page Title',
+          'Lista de Atendimentos',
           style: FlutterFlowTheme.of(context).title2.override(
                 fontFamily: 'Poppins',
                 color: Colors.white,
@@ -123,7 +122,7 @@ class _ListAttendanceAdmWidgetState extends State<ListAttendanceAdmWidget> {
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.7,
                 decoration: BoxDecoration(
-                  color: Color(0xFFE9E9E9),
+                  color: FlutterFlowTheme.of(context).primaryBackground,
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
@@ -134,7 +133,7 @@ class _ListAttendanceAdmWidgetState extends State<ListAttendanceAdmWidget> {
                       child: StreamBuilder<List<AttendenceRecord>>(
                         stream: queryAttendenceRecord(
                           queryBuilder: (attendenceRecord) => attendenceRecord
-                              .where('uid', isEqualTo: currentUserUid),
+                              .orderBy('date', descending: true),
                         ),
                         builder: (context, snapshot) {
                           // Customize what your widget looks like when it's loading.
@@ -169,7 +168,8 @@ class _ListAttendanceAdmWidgetState extends State<ListAttendanceAdmWidget> {
                                       MaterialPageRoute(
                                         builder: (context) =>
                                             AttendenceDetailsAdmWidget(
-                                          idAttendance: widget.idAttendence,
+                                          idAttendence: listViewAttendenceRecord
+                                              .reference,
                                         ),
                                       ),
                                     );

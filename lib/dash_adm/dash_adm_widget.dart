@@ -1,7 +1,9 @@
+import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../list_attendance_adm/list_attendance_adm_widget.dart';
+import '../login/login_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -33,11 +35,17 @@ class _DashAdmWidgetState extends State<DashAdmWidget> {
             size: 30,
           ),
           onPressed: () async {
-            Navigator.pop(context);
+            await signOut();
+            await Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => LoginWidget(),
+              ),
+            );
           },
         ),
         title: Text(
-          'Page Title',
+          'Dashboard',
           style: FlutterFlowTheme.of(context).title2.override(
                 fontFamily: 'Poppins',
                 color: Colors.white,

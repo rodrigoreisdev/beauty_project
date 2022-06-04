@@ -1,4 +1,3 @@
-import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -10,10 +9,10 @@ import 'package:google_fonts/google_fonts.dart';
 class AttendenceDetailsAdmWidget extends StatefulWidget {
   const AttendenceDetailsAdmWidget({
     Key key,
-    this.idAttendance,
+    this.idAttendence,
   }) : super(key: key);
 
-  final DocumentReference idAttendance;
+  final DocumentReference idAttendence;
 
   @override
   _AttendenceDetailsAdmWidgetState createState() =>
@@ -27,7 +26,7 @@ class _AttendenceDetailsAdmWidgetState
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<AttendenceRecord>(
-      stream: AttendenceRecord.getDocument(widget.idAttendance),
+      stream: AttendenceRecord.getDocument(widget.idAttendence),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -62,7 +61,7 @@ class _AttendenceDetailsAdmWidgetState
               },
             ),
             title: Text(
-              'Page Title',
+              'Detalhes do atendimento',
               style: FlutterFlowTheme.of(context).title2.override(
                     fontFamily: 'Poppins',
                     color: Colors.white,
@@ -147,7 +146,7 @@ class _AttendenceDetailsAdmWidgetState
                         children: [
                           Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(30, 20, 30, 20),
+                                EdgeInsetsDirectional.fromSTEB(30, 20, 30, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -161,16 +160,70 @@ class _AttendenceDetailsAdmWidgetState
                                         fontWeight: FontWeight.bold,
                                       ),
                                 ),
-                                AuthUserStreamWidget(
-                                  child: Text(
-                                    currentUserDisplayName,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 16,
-                                        ),
-                                  ),
+                                Text(
+                                  attendenceDetailsAdmAttendenceRecord.name,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 16,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(30, 10, 30, 0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Text(
+                                  'E-mail: ',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                                Text(
+                                  attendenceDetailsAdmAttendenceRecord.email,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 16,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(30, 10, 30, 30),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Text(
+                                  'Telefone: ',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                                Text(
+                                  attendenceDetailsAdmAttendenceRecord.phone,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 16,
+                                      ),
                                 ),
                               ],
                             ),

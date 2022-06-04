@@ -61,7 +61,7 @@ class _AttendenceDetailsWidgetState extends State<AttendenceDetailsWidget> {
               },
             ),
             title: Text(
-              'Page Title',
+              'Detalhes do Atendimento',
               style: FlutterFlowTheme.of(context).title2.override(
                     fontFamily: 'Poppins',
                     color: Colors.white,
@@ -185,7 +185,7 @@ class _AttendenceDetailsWidgetState extends State<AttendenceDetailsWidget> {
                             children: [
                               Padding(
                                 padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                                 child: Text(
                                   attendenceDetailsAttendenceRecord.subject,
                                   textAlign: TextAlign.start,
@@ -200,14 +200,15 @@ class _AttendenceDetailsWidgetState extends State<AttendenceDetailsWidget> {
                               ),
                             ],
                           ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
-                                child: Image.network(
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Image.network(
                                   valueOrDefault<String>(
                                     attendenceDetailsAttendenceRecord.photo,
                                     'https://firebasestorage.googleapis.com/v0/b/projeto-beleza-900db.appspot.com/o/stuf%2Fno-image.png?alt=media&token=bf2aad0c-723f-406b-8521-a7d82fcc61cc',
@@ -217,8 +218,8 @@ class _AttendenceDetailsWidgetState extends State<AttendenceDetailsWidget> {
                                   height: 300,
                                   fit: BoxFit.cover,
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                           Padding(
                             padding:

@@ -49,7 +49,7 @@ class _LoginAdmWidgetState extends State<LoginAdmWidget> {
           },
         ),
         title: Text(
-          'Page Title',
+          'Login Administrador',
           style: FlutterFlowTheme.of(context).title2.override(
                 fontFamily: 'Poppins',
                 color: Colors.white,
@@ -60,7 +60,7 @@ class _LoginAdmWidgetState extends State<LoginAdmWidget> {
         centerTitle: false,
         elevation: 2,
       ),
-      backgroundColor: Color(0xFFF1F4F8),
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.max,

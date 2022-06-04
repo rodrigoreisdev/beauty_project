@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../list_attendance/list_attendance_widget.dart';
+import '../login/login_widget.dart';
 import '../new_attendence/new_attendence_widget.dart';
 import '../profile/profile_widget.dart';
 import 'package:flutter/material.dart';
@@ -36,11 +37,17 @@ class _DashWidgetState extends State<DashWidget> {
             size: 30,
           ),
           onPressed: () async {
-            Navigator.pop(context);
+            await signOut();
+            await Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => LoginWidget(),
+              ),
+            );
           },
         ),
         title: Text(
-          'Page Title',
+          'Dashboard',
           style: FlutterFlowTheme.of(context).title2.override(
                 fontFamily: 'Poppins',
                 color: Colors.white,

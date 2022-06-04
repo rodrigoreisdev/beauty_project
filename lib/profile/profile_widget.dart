@@ -52,7 +52,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
           },
         ),
         title: Text(
-          'Page Title',
+          'Perfil',
           style: FlutterFlowTheme.of(context).title2.override(
                 fontFamily: 'Poppins',
                 color: Colors.white,

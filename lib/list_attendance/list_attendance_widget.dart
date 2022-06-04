@@ -39,7 +39,7 @@ class _ListAttendanceWidgetState extends State<ListAttendanceWidget> {
           },
         ),
         title: Text(
-          'Page Title',
+          'Lista de Atendimentos',
           style: FlutterFlowTheme.of(context).title2.override(
                 fontFamily: 'Poppins',
                 color: Colors.white,
@@ -133,7 +133,8 @@ class _ListAttendanceWidgetState extends State<ListAttendanceWidget> {
                       child: StreamBuilder<List<AttendenceRecord>>(
                         stream: queryAttendenceRecord(
                           queryBuilder: (attendenceRecord) => attendenceRecord
-                              .where('uid', isEqualTo: currentUserUid),
+                              .where('uid', isEqualTo: currentUserUid)
+                              .orderBy('date'),
                         ),
                         builder: (context, snapshot) {
                           // Customize what your widget looks like when it's loading.
