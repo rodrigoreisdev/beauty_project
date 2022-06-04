@@ -105,51 +105,53 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     ],
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  child: TextFormField(
-                    controller: displayNameController,
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      labelText: 'Nome',
-                      labelStyle:
-                          FlutterFlowTheme.of(context).bodyText2.override(
-                                fontFamily: 'Outfit',
-                                color: Color(0xFF57636C),
-                                fontSize: 14,
-                                fontWeight: FontWeight.normal,
-                              ),
-                      hintText: 'Nome',
-                      hintStyle:
-                          FlutterFlowTheme.of(context).bodyText1.override(
-                                fontFamily: 'Lexend Deca',
-                                color: Color(0xFF57636C),
-                                fontSize: 14,
-                                fontWeight: FontWeight.normal,
-                              ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0x00000000),
-                          width: 0,
+                  child: AuthUserStreamWidget(
+                    child: TextFormField(
+                      controller: displayNameController,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelText: currentUserDisplayName,
+                        labelStyle:
+                            FlutterFlowTheme.of(context).bodyText2.override(
+                                  fontFamily: 'Outfit',
+                                  color: Color(0xFF57636C),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                        hintText: 'Nome',
+                        hintStyle:
+                            FlutterFlowTheme.of(context).bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Color(0xFF57636C),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 0,
+                          ),
+                          borderRadius: BorderRadius.circular(12),
                         ),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0x00000000),
-                          width: 0,
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 0,
+                          ),
+                          borderRadius: BorderRadius.circular(12),
                         ),
-                        borderRadius: BorderRadius.circular(12),
+                        filled: true,
+                        fillColor: Colors.white,
+                        contentPadding:
+                            EdgeInsetsDirectional.fromSTEB(24, 24, 20, 24),
                       ),
-                      filled: true,
-                      fillColor: Colors.white,
-                      contentPadding:
-                          EdgeInsetsDirectional.fromSTEB(24, 24, 20, 24),
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Outfit',
+                            color: Color(0xFF0F1113),
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal,
+                          ),
                     ),
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
-                          fontFamily: 'Outfit',
-                          color: Color(0xFF0F1113),
-                          fontSize: 14,
-                          fontWeight: FontWeight.normal,
-                        ),
                   ),
                 ),
               ),
@@ -173,7 +175,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     controller: emailController,
                     obscureText: false,
                     decoration: InputDecoration(
-                      labelText: 'E-mail',
+                      labelText: currentUserEmail,
                       labelStyle:
                           FlutterFlowTheme.of(context).bodyText2.override(
                                 fontFamily: 'Outfit',
@@ -233,52 +235,54 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     ],
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  child: TextFormField(
-                    controller: phoneController,
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      labelText: 'Celular',
-                      labelStyle:
-                          FlutterFlowTheme.of(context).bodyText2.override(
-                                fontFamily: 'Outfit',
-                                color: Color(0xFF57636C),
-                                fontSize: 14,
-                                fontWeight: FontWeight.normal,
-                              ),
-                      hintText: 'Celular',
-                      hintStyle:
-                          FlutterFlowTheme.of(context).bodyText1.override(
-                                fontFamily: 'Lexend Deca',
-                                color: Color(0xFF57636C),
-                                fontSize: 14,
-                                fontWeight: FontWeight.normal,
-                              ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0x00000000),
-                          width: 0,
+                  child: AuthUserStreamWidget(
+                    child: TextFormField(
+                      controller: phoneController,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelText: currentPhoneNumber,
+                        labelStyle:
+                            FlutterFlowTheme.of(context).bodyText2.override(
+                                  fontFamily: 'Outfit',
+                                  color: Color(0xFF57636C),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                        hintText: 'Celular',
+                        hintStyle:
+                            FlutterFlowTheme.of(context).bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Color(0xFF57636C),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 0,
+                          ),
+                          borderRadius: BorderRadius.circular(12),
                         ),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0x00000000),
-                          width: 0,
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 0,
+                          ),
+                          borderRadius: BorderRadius.circular(12),
                         ),
-                        borderRadius: BorderRadius.circular(12),
+                        filled: true,
+                        fillColor: Colors.white,
+                        contentPadding:
+                            EdgeInsetsDirectional.fromSTEB(24, 24, 20, 24),
                       ),
-                      filled: true,
-                      fillColor: Colors.white,
-                      contentPadding:
-                          EdgeInsetsDirectional.fromSTEB(24, 24, 20, 24),
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Outfit',
+                            color: Color(0xFF0F1113),
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal,
+                          ),
+                      keyboardType: TextInputType.phone,
                     ),
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
-                          fontFamily: 'Outfit',
-                          color: Color(0xFF0F1113),
-                          fontSize: 14,
-                          fontWeight: FontWeight.normal,
-                        ),
-                    keyboardType: TextInputType.phone,
                   ),
                 ),
               ),
