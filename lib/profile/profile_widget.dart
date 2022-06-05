@@ -25,9 +25,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
   @override
   void initState() {
     super.initState();
-    displayNameController = TextEditingController();
-    emailController = TextEditingController();
-    phoneController = TextEditingController();
+    displayNameController = TextEditingController(text: currentUserDisplayName);
+    emailController = TextEditingController(text: currentUserEmail);
+    phoneController = TextEditingController(text: currentPhoneNumber);
   }
 
   @override
@@ -118,7 +118,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                   fontSize: 14,
                                   fontWeight: FontWeight.normal,
                                 ),
-                        hintText: 'Nome',
+                        hintText: currentUserDisplayName,
                         hintStyle:
                             FlutterFlowTheme.of(context).bodyText1.override(
                                   fontFamily: 'Lexend Deca',
@@ -183,7 +183,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                 fontSize: 14,
                                 fontWeight: FontWeight.normal,
                               ),
-                      hintText: 'E-mail',
+                      hintText: currentUserEmail,
                       hintStyle:
                           FlutterFlowTheme.of(context).bodyText1.override(
                                 fontFamily: 'Lexend Deca',
@@ -248,7 +248,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                   fontSize: 14,
                                   fontWeight: FontWeight.normal,
                                 ),
-                        hintText: 'Celular',
+                        hintText: currentPhoneNumber,
                         hintStyle:
                             FlutterFlowTheme.of(context).bodyText1.override(
                                   fontFamily: 'Lexend Deca',
