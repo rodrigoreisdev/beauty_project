@@ -1128,7 +1128,7 @@ class _NewAttendenceWidgetState extends State<NewAttendenceWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Text(
-                  'Envie uma foto da pele',
+                  'Envie uma foto',
                   style: FlutterFlowTheme.of(context).bodyText1.override(
                         fontFamily: 'Poppins',
                         fontSize: 24,
@@ -1187,7 +1187,7 @@ class _NewAttendenceWidgetState extends State<NewAttendenceWidget> {
                             validateFileFormat(m.storagePath, context))) {
                       showUploadMessage(
                         context,
-                        'Uploading file...',
+                        'Carregando...',
                         showLoading: true,
                       );
                       final downloadUrls = (await Future.wait(selectedMedia.map(
@@ -1201,12 +1201,12 @@ class _NewAttendenceWidgetState extends State<NewAttendenceWidget> {
                         setState(() => uploadedFileUrl = downloadUrls.first);
                         showUploadMessage(
                           context,
-                          'Success!',
+                          'Sucesso!',
                         );
                       } else {
                         showUploadMessage(
                           context,
-                          'Failed to upload media',
+                          'Falha no carregamento',
                         );
                         return;
                       }
